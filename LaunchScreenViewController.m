@@ -85,6 +85,6 @@
     UIApplication *app = [UIApplication sharedApplication];
     if (self.isStatusBarInitiallyHidden)
         app.keyWindow.windowLevel = UIWindowLevelNormal;
-}
+} 
 
 @end
