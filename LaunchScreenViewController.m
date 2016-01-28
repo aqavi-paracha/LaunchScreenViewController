@@ -8,7 +8,9 @@
 
 #import "LaunchScreenViewController.h"
 
-@interface LaunchScreenViewController ()
+@interface LaunchScreenViewController () {
+    NSString* nibName;
+}
 
 @property (nonatomic, strong) UIView *snapshotView;
 @property (nonatomic, readonly) NSString *launchScreenName;
@@ -17,6 +19,15 @@
 @end
 
 @implementation LaunchScreenViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self != nil) {
+        nibName = nibNameOrNil;
+    }
+    return self;
+}
 
 - (UIView *)snapshotView
 {
@@ -40,7 +51,7 @@
 
 - (NSString *)launchScreenName
 {
-    return [[NSBundle mainBundle] infoDictionary][@"UILaunchStoryboardName"];
+    return nibName;
 }
 
 - (BOOL)isStatusBarInitiallyHidden
